@@ -345,6 +345,30 @@ export default function Home() {
             <div className="bg-white rounded-lg p-4 flex justify-center">
               <img src={result.qrCode} alt="QR Code" className="w-64 h-64" />
             </div>
+
+            <div className="flex gap-2">
+              <button
+                onClick={() => {
+                  const link = document.createElement("a");
+                  link.download = "ar-qrcode.png";
+                  link.href = result.qrCode;
+                  link.click();
+                }}
+                className="flex-1 bg-gray-800 text-white font-medium py-2 px-4 rounded-lg hover:bg-gray-700 transition"
+              >
+                Download QR
+              </button>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(result.viewUrl);
+                  alert("Link copied!");
+                }}
+                className="flex-1 bg-gray-800 text-white font-medium py-2 px-4 rounded-lg hover:bg-gray-700 transition"
+              >
+                Copy Link
+              </button>
+            </div>
+
             <p className="text-center text-sm text-gray-400">
               Scan to view in AR or{" "}
               <a href={result.viewUrl} target="_blank" className="text-blue-400 underline">
