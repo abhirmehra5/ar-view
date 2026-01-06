@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# 3D models (stored in Vercel Blob)
+public/models/*.glb
+public/models/*.gltf
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
