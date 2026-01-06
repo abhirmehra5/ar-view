@@ -104,7 +104,7 @@ export async function POST(req: NextRequest) {
   // Upload to Vercel Blob
   const id = uuid();
   const filename = `models/${id}.glb`;
-  const blob = await put(filename, glbBuffer, {
+  const blob = await put(filename, Buffer.from(glbBuffer), {
     access: "public",
     contentType: "model/gltf-binary",
   });
